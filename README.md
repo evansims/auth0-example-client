@@ -1,6 +1,6 @@
 # Auth0 Demonstration Client
 
-Thanks for your interest in my demonstration client of [Auth0's](https://auth0.com/) robust authentication and authorization platform. This is one half of a project demonstrating how one might go about implimenting Auth0's authentication API to interact with a custom backend.
+Thanks for your interest in my demonstration client of [Auth0's](https://auth0.com/) robust authentication and authorization platform. This is one half of a project demonstrating how one might go about implementing Auth0's authentication API to interact with a custom backend.
 
 This repo houses the JavaScript-based frontend server. [The accompanying PHP-based backend server can be found here.](https://github.com/evansims/auth0-example-server)
 
