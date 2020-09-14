@@ -1,0 +1,17 @@
+<div class="flex flex-col flex-grow p-2">
+  <app-viewport class="flex flex-col flex-grow w-full h-full rounded bg-raven-500">
+    <div data-scroll="true" class="pb-16">
+
+      {{#if session.authenticated}}
+
+        <Pages::AccountsList />
+
+      {{else}}
+
+        <Pages::AuthLogin />
+
+      {{/if}}
+
+    </div>
+  </app-viewport>
+</div>

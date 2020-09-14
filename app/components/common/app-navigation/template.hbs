@@ -1,0 +1,53 @@
+<app-sidebar data-state="expanded">
+  <div>
+    <header>
+      <LinkTo @route="index" @class="brand">
+        <img src="/images/auth0.png">
+        <h1>Auth0</h1>
+      </LinkTo>
+    </header>
+
+    <nav>
+      <div data-scroll="true">
+        <section>
+          {{#if session.authenticated}}
+            <dl>
+              <dd>
+                <LinkTo @route="index">
+                  <span class="icon"><FaIcon @icon="user-friends" @fixedWidth={{true}} /></span>
+                  <span class="text">Users</span>
+                </LinkTo>
+              </dd>
+              <dd>
+                <button {{action 'logout'}}>
+                  <span class="icon"><FaIcon @icon="sign-out" @fixedWidth={{true}} /></span>
+                  <span class="text">Sign Out</span>
+                </button>
+              </dd>
+            </dl>
+          {{/if}}
+        </section>
+      </div>
+    </nav>
+
+    <footer>
+      <dl>
+        <dd class="pitch pitch-text">
+          <p>This is a developer demonstration of Auth0's authentication and management APIs.</p>
+        </dd>
+        <dd class="pitch">
+          <a href="https://github.com/evansims/auth0-example-client" target="_blank">
+            <span class="icon"><FaIcon @prefix="fas" @icon="code-branch" @fixedWidth={{true}} /></span>
+            <span class="text">GitHub repo</span>
+          </a>
+        </dd>
+        <dd class="pitch">
+          <a href="https://auth0.com/" target="_blank">
+            <span class="icon"><FaIcon @prefix="fas" @icon="external-link" @fixedWidth={{true}} /></span>
+            <span class="text">Learn more</span>
+          </a>
+        </dd>
+      </dl>
+    </footer>
+  </div>
+</app-sidebar>

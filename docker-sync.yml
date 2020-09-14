@@ -1,0 +1,8 @@
+version: '2'
+
+options:
+  verbose: false
+syncs:
+  auth0-example-client-app-sync:
+    src: '.'
+    sync_excludes: ['.DS_Store', '.git', 'node_modules', 'tmp', 'obsolete']

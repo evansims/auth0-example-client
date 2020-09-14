@@ -1,0 +1,59 @@
+app-sidebar {
+  @apply bg-hexachrome-500;
+  @apply text-gainsboro-500;
+
+  header {
+    > a {
+      &:focus > svg {
+        @apply border-gainsboro-500;
+      }
+
+      &:hover > svg {
+        @apply border-gainsboro-500;
+      }
+    }
+  }
+
+  dl {
+    dd {
+      a,
+      button {
+        &:focus .icon,
+        &:hover .icon {
+          @apply text-white;
+        }
+      }
+
+      &.pitch-text p {
+        @apply text-raven-400;
+      }
+    }
+  }
+}
+
+app-sidebar[data-state='expanded'] {
+  dl {
+    dd {
+      a,
+      button {
+        &:focus,
+        &:hover,
+        &.active {
+          @apply bg-raven-500;
+        }
+      }
+
+      &.search a {
+        @apply bg-hexachrome-600;
+        @apply text-raven-400;
+        @apply border;
+        @apply border-raven-500;
+
+        &:focus,
+        &:hover {
+          @apply border-raven-400;
+        }
+      }
+    }
+  }
+}

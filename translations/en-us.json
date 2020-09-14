@@ -1,0 +1,8 @@
+{
+  "app": {
+    "state_connecting": "Connecting",
+    "state_maintenance": "Undergoing maintenance",
+    "state_authenticating": "Authenticating",
+    "state_ready": "Ready!"
+  }
+}

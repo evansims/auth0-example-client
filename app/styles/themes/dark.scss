@@ -1,0 +1,18 @@
+:root {
+  --color-primary: #eb5424;
+  --color-primary-shaded: #bc431d;
+  --color-primary-tinted: #f35625;
+}
+
+html:not([data-theme]),
+html[data-theme='dark'] {
+  html,
+  body {
+    @apply bg-hexachrome-500;
+  }
+
+  @import '../forms/themes/dark';
+
+  @import '../../components/common/app-navigation/themes/dark.scss';
+  @import '../../components/pages/auth-login/themes/dark.scss';
+}

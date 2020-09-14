@@ -1,0 +1,18 @@
+<div class="max-w-6xl px-8 mx-auto">
+  <div class="pt-12 pb-10 mb-4 text-raven-400">
+    <h3 class="text-4xl font-semibold text-white">Sign In</h3>
+    <p>Authorize your session using Auth0</p>
+
+    <form {{action 'doAuthentication' on='submit'}} class="pt-8 app-form">
+      <div class="form-group button-group">
+        <button type="submit" disabled={{this.props.processing}}>
+          {{#if this.props.processing}}
+            <FaIcon @icon="spinner-third" @spin={{true}} @fixedWidth={{true}} />
+          {{else}}
+            <span>Continue using Auth0</span>
+          {{/if}}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

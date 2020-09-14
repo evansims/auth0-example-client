@@ -1,0 +1,163 @@
+.app-form {
+  .input-group {
+    @apply block;
+
+    .label {
+      @apply block;
+      @apply font-medium;
+    }
+
+    .label + input {
+      @apply mt-2;
+    }
+
+    input {
+      @apply block;
+      @apply w-full;
+      @apply px-4;
+      @apply py-3;
+      @apply border;
+      @apply rounded;
+
+      &:focus {
+        @apply outline-none;
+        @apply border-primary;
+      }
+    }
+  }
+
+  .textarea-group {
+    @apply block;
+
+    .label {
+      @apply block;
+      @apply font-medium;
+    }
+
+    .label + textarea {
+      @apply mt-2;
+    }
+
+    textarea {
+      @apply block;
+      @apply w-full;
+      @apply h-24;
+      @apply px-4;
+      @apply py-3;
+      @apply border;
+      @apply rounded;
+      @apply resize-none;
+
+      &:focus {
+        @apply outline-none;
+        @apply border-primary;
+      }
+    }
+  }
+
+  .checkbox-group {
+    @apply flex;
+    @apply w-full;
+
+    .checkbox {
+      @apply flex-none;
+      @apply relative;
+
+      input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        appearance: none;
+      }
+
+      input + .checkbox-state {
+        @apply flex;
+        @apply w-6;
+        @apply h-6;
+        @apply rounded;
+        @apply border;
+        @apply justify-center;
+        @apply items-center;
+
+        span {
+          display: none;
+        }
+      }
+
+      input:checked + .checkbox-state span {
+        @apply block;
+      }
+
+      input + .checkbox-self-state {
+        @apply flex;
+        @apply w-6;
+        @apply h-6;
+        @apply rounded;
+        @apply border;
+        @apply justify-center;
+        @apply items-center;
+      }
+    }
+
+    .label {
+      @apply flex-auto;
+      @apply font-medium;
+      @apply pl-4;
+    }
+  }
+
+  .button-group {
+    @apply flex;
+    @apply flex-col;
+
+    button {
+      @apply block;
+      @apply flex-auto;
+      @apply px-4;
+      @apply py-3;
+      @apply rounded;
+
+      &[type='submit'] {
+        @apply bg-primary;
+        @apply font-medium;
+      }
+
+      &:focus {
+        @apply outline-none;
+        background-color: var(--color-primary-shaded);
+      }
+
+      &:hover {
+        background-color: var(--color-primary-shaded);
+      }
+
+      &[disabled] {
+        background-color: var(--color-primary-shaded);
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .hint-group,
+  .error-group {
+    @apply block;
+
+    a {
+      @apply text-primary;
+
+      &:hover,
+      &:focus {
+        @apply underline;
+      }
+    }
+  }
+
+  .form-group + .form-group {
+    @apply mt-4;
+  }
+
+  .form-group + .button-group {
+    @apply mt-6;
+  }
+}

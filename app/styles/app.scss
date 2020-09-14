@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+@tailwind base;
+
+html {
+  @apply text-base;
+  @apply cursor-default;
+}
+
+html,
+body {
+  @apply fixed;
+  @apply flex;
+  @apply flex-col;
+  @apply w-screen;
+  @apply h-screen;
+  @apply overflow-hidden;
+}
+
+#root {
+  @apply absolute;
+  @apply inset-0;
+  @apply flex;
+  @apply overflow-hidden;
+  @apply scrolling-touch;
+
+  overscroll-behavior: none;
+}
+
+.simplebar-wrapper {
+  @apply relative;
+}
+
+@tailwind components;
+
+// Helper classes
+@import 'utilities';
+
+// Forms
+@import 'forms/index';
+
+// Individual components
+@import '../components/common/app-navigation/style.scss';
+@import '../components/pages/auth-login/style.scss';
+
+@import 'themes/dark';
+@import 'themes/light';
+
+@tailwind utilities;

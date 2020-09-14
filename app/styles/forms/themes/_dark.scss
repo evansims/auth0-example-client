@@ -1,0 +1,86 @@
+.app-form {
+  .input-group {
+    input {
+      @apply bg-raven-600;
+      @apply border-hexachrome-500;
+
+      &:hover {
+        @apply border-hexachrome-700;
+      }
+
+      &:focus {
+        @apply border-primary;
+      }
+    }
+  }
+
+  .textarea-group {
+    textarea {
+      @apply bg-raven-600;
+      @apply border-hexachrome-500;
+
+      &:hover {
+        @apply border-hexachrome-700;
+      }
+
+      &:focus {
+        @apply border-primary;
+      }
+    }
+  }
+
+  .checkbox-group {
+    .checkbox-state,
+    .checkbox-self-state {
+      @apply bg-raven-600;
+      @apply border-hexachrome-500;
+    }
+
+    &:hover .checkbox-state,
+    &:hover .checkbox-self-state {
+      @apply border-hexachrome-700;
+    }
+
+    &:focus-within .checkbox-state,
+    &:focus-within .checkbox-self-state,
+    input:focus + .checkbox-self-state,
+    input:focus + .checkbox-state {
+      @apply border-primary;
+    }
+
+    .checkbox-self-state,
+    input:checked + .checkbox-state span {
+      @apply text-primary;
+    }
+
+    .label a {
+      @apply text-primary;
+
+      &:focus {
+        @apply underline;
+      }
+    }
+  }
+
+  .button-group {
+    button {
+      @apply border;
+      @apply border-transparent;
+      @apply text-white;
+
+      &:focus {
+        @apply border-white;
+      }
+    }
+  }
+
+  .hint-group {
+    a {
+      @apply text-primary;
+    }
+  }
+
+  .error-group {
+    @apply text-red-500;
+  }
+}

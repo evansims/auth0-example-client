@@ -1,0 +1,98 @@
+<div class="relative z-30">
+  <div class="max-w-6xl px-8 mx-auto">
+    <div class="pt-12 pb-10 mb-4 text-raven-400">
+      <h3 class="text-4xl font-semibold text-white">Users</h3>
+
+      {{#if props.searchPrevious}}
+        <p>Showing filtered results using your search query.</p>
+      {{else}}
+        <p>Showing all results. Use search to filter results.</p>
+      {{/if}}
+    </div>
+
+    {{#if props.queryingInitial}}
+      <div class="flex-grow p-10 text-center text-white rounded bg-hexachrome-500">
+        <FaIcon @icon="spinner-third" @spin={{true}} @fixedWidth={{true}} />
+      </div>
+    {{/if}}
+
+    {{#unless props.queryingInitial}}
+      <div class="flex items-center flex-grow pl-10 mb-4 text-white border rounded bg-hexachrome-500 border-hexachrome-500">
+        <FaIcon @icon="search" @fixedWidth={{true}} />
+        <Input @value={{search}} placeholder="Search users ..." class="flex-grow block p-10 bg-transparent outline-none placeholder-raven-400 " />
+      </div>
+    {{/unless}}
+
+    {{#each users as |user|}}
+      <div class="flex-grow mb-4 rounded bg-hexachrome-500 text-raven-400">
+        <header class="flex items-center p-6 pt-4 pb-0 pr-5">
+          <div class="flex-grow">
+            <a href="#" class="flex items-center">
+              <img src="{{user.picture}}" class="w-8 h-8 mr-2 rounded-full bg-raven-500" />
+              <span class="mr-2 font-semibold text-white">{{user.email}}</span>
+            </a>
+          </div>
+          <a href="#" class="flex-none">{{user.id}}</a>
+        </header>
+
+        <div class="px-6 py-3 text-gainsboro-500">
+          <table class="w-full table-fixed">
+            <tbody>
+              <tr>
+                <td class="w-1/4 py-1 font-medium">Email Verified</td>
+                <td class="py-1">{{user.email_verified}}</td>
+              </tr>
+              <tr>
+                <td class="w-1/4 py-1 font-medium">Name</td>
+                <td class="py-1">{{user.name}}</td>
+              </tr>
+              <tr>
+                <td class="w-1/4 py-1 font-medium">Nickname</td>
+                <td class="py-1">{{user.nickname}}</td>
+              </tr>
+              {{#if user.identities}}
+                <tr>
+                  <td class="w-1/4 pt-5 font-medium align-top">Identities</td>
+                  <td class="py-1">
+                    {{#each user.identities as |identity|}}
+                      <div class="px-4 py-3 rounded bg-raven-500">
+                        {{#each-in identity as |key value|}}
+                          <p>{{key}}: {{value}}</p>
+                        {{/each-in}}
+                      </div>
+                    {{/each}}
+                  </td>
+                </tr>
+              {{/if}}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex items-center px-6 pb-5">
+          <div class="flex items-center flex-grow">
+            <div class="flex-grow truncate">
+              <span class="pr-2 text-gainsboro-500">Created {{user.created_at}}</span>
+            </div>
+            <div class="flex-none text-right truncate">
+              <span>Updated {{user.updated_at}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
+    {{#unless props.queryingInitial}}
+      {{#if props.querying}}
+        <div class="flex-grow p-10 text-center text-white rounded bg-hexachrome-500">
+          <FaIcon @icon="spinner-third" @spin={{true}} @fixedWidth={{true}} />
+        </div>
+      {{else}}
+        {{#if props.moreResults}}
+          <div class="flex-grow p-6 text-center text-white rounded bg-hexachrome-500">
+            <button {{action 'loadMoreResults'}} class="w-full p-4 text-white bg-primary">More users...</button>
+          </div>
+        {{/if}}
+      {{/if}}
+    {{/unless}}
+  </div>
+</div>

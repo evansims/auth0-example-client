@@ -1,0 +1,23 @@
+{
+  "plugins": ["ember"],
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:ember/recommended",
+    "plugin:tailwind/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "jsx-a11y/href-no-hash": ["off"],
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "func-names": ["off"],
+    "import/no-unresolved": ["off"],
+    "import/extensions": ["off"]
+  }
+}

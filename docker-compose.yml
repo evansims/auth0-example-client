@@ -1,0 +1,26 @@
+version: '2.4'
+
+services:
+  auth0-example-client-app:
+    build: ./docker
+    ports:
+      - '3000:3000'
+    volumes:
+      - auth0-example-client-app-sync:/myapp:nocopy
+      - ./docker/entrypoint.sh:/myapp/tmp/entrypoint.sh:ro
+      - ./docker/gulpfile.js:/myapp/tmp/gulpfile.js:ro
+      - node_modules:/myapp/node_modules:rw
+      - yarn_cache:/yarn
+    tmpfs:
+      - /myapp/tmp
+
+volumes:
+  node_modules:
+  yarn_cache:
+  auth0-example-client-app-sync:
+    external: true
+
+networks:
+  default:
+    name: auth0-example-network
+    driver: bridge

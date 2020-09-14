@@ -1,0 +1,151 @@
+app-sidebar {
+  @apply flex-none;
+  @apply flex;
+  @apply flex-col;
+  @apply select-none;
+}
+
+app-sidebar > div {
+  @apply flex-none;
+  @apply flex;
+  @apply flex-col;
+  @apply w-full;
+  @apply h-full;
+  @apply overflow-hidden;
+}
+
+app-sidebar {
+  dl {
+    dd {
+      a,
+      button {
+        @apply flex-none;
+        @apply flex;
+        @apply outline-none;
+
+        .icon {
+          @apply flex-none;
+
+          img {
+            @apply rounded;
+          }
+        }
+
+        .text {
+          @apply flex-grow;
+          @apply font-medium;
+          @apply truncate;
+        }
+
+        .subtext {
+          @apply font-normal;
+          @apply opacity-50;
+        }
+      }
+
+      &.pitch-text p {
+        @apply px-2;
+        @apply py-3;
+      }
+
+      &.activity {
+        a {
+          .icon {
+            @apply text-primary;
+          }
+        }
+      }
+    }
+  }
+
+  header {
+    @apply relative;
+    @apply flex-none;
+    @apply p-2;
+    @apply overflow-hidden;
+
+    .brand {
+      @apply block;
+      @apply p-2;
+      @apply pt-4;
+      @apply outline-none;
+      @apply text-center;
+
+      > img {
+        @apply block;
+        @apply w-16;
+        @apply h-auto;
+        @apply m-auto;
+      }
+
+      > h1 {
+        position: absolute;
+        left: -9999px;
+        text-indent: -9999px;
+      }
+    }
+  }
+
+  nav {
+    @apply flex-grow;
+    @apply flex;
+    @apply flex-col;
+    @apply w-full;
+    @apply overflow-hidden;
+  }
+
+  footer {
+    @apply flex-none;
+    @apply flex;
+    @apply flex-col;
+    @apply w-full;
+  }
+}
+
+app-sidebar[data-state='expanded'] {
+  @apply w-64;
+
+  dl {
+    @apply mb-4;
+
+    &:last-of-type {
+      @apply mb-0;
+    }
+
+    dd {
+      @apply mb-1;
+
+      a,
+      button {
+        @apply w-full;
+        @apply px-2;
+        @apply leading-loose;
+        @apply rounded;
+        @apply outline-none;
+        @apply items-center;
+        @apply text-left;
+
+        .icon {
+          @apply w-7;
+
+          img {
+            @apply w-4;
+            @apply h-4;
+          }
+        }
+      }
+    }
+  }
+
+  header {
+    @apply mb-2;
+  }
+
+  nav {
+    @apply px-4;
+  }
+
+  footer {
+    @apply p-4;
+  }
+}
