@@ -53,8 +53,6 @@ export default Component.extend({
   },
 
   loadUsers: function() {
-    console.log('loadUsers');
-
     this.clearUsers();
 
     get(this, 'debounceSearch').cancelAll();
