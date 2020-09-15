@@ -33,10 +33,10 @@ git clone https://github.com/evansims/auth0-example-client.git
 
 ### Configure our client
 
-1. One your machine, within the cloned directory of this repository, open the `config/environment.js` file.
+1. On your machine, within the cloned directory of this repository, open the `config/environment.js` file.
 2. Find the `auth0` section.
 3. Set your `clientId` and `domain` to the values you made note of when you set up your Auth0 Application (above.)
-4. Set your `audience` to match the Audience of the Auth0 API you setup while configuring the [backend server](https://github.com/evansims/auth0-example-server).
+4. Set your `audience` to match the Audience of the Auth0 API you noted while configuring the [backend server](https://github.com/evansims/auth0-example-server).
 5. Save the file.
 
 ### Build the client
