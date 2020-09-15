@@ -5,10 +5,6 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
 
-    fontawesome: {
-      defaultPrefix: 'fal',
-    },
-
     EmberENV: {
       LOG_STACKTRACE_ON_DEPRECATION: false,
     },

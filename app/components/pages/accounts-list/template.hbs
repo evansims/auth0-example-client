@@ -12,7 +12,7 @@
 
     {{#if props.queryingInitial}}
       <div class="flex-grow p-10 text-center text-white rounded bg-hexachrome-500">
-        <FaIcon @icon="spinner-third" @spin={{true}} @fixedWidth={{true}} />
+        <FaIcon @icon="spinner" @spin={{true}} @fixedWidth={{true}} />
       </div>
     {{/if}}
 
@@ -84,7 +84,7 @@
     {{#unless props.queryingInitial}}
       {{#if props.querying}}
         <div class="flex-grow p-10 text-center text-white rounded bg-hexachrome-500">
-          <FaIcon @icon="spinner-third" @spin={{true}} @fixedWidth={{true}} />
+          <FaIcon @icon="spinner" @spin={{true}} @fixedWidth={{true}} />
         </div>
       {{else}}
         {{#if props.moreResults}}

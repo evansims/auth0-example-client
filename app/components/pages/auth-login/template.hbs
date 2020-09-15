@@ -7,7 +7,7 @@
       <div class="form-group button-group">
         <button type="submit" disabled={{this.props.processing}}>
           {{#if this.props.processing}}
-            <FaIcon @icon="spinner-third" @spin={{true}} @fixedWidth={{true}} />
+            <FaIcon @icon="spinner" @spin={{true}} @fixedWidth={{true}} />
           {{else}}
             <span>Continue using Auth0</span>
           {{/if}}
