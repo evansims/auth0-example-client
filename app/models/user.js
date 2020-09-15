@@ -17,8 +17,4 @@ export default Model.extend({
 
   updated_at: attr('string'),
   created_at: attr('string'),
-
-  getIdentitiesString: computed('identities', function() {
-    return JSON.stringify(get(this, 'identities'), undefined, 4);
-  }),
 });
