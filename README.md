@@ -73,6 +73,18 @@ You can paginate and view more users by selecting the 'more users' button at the
 
 At the top of the page you can use the search field to filter your results.
 
+### The important points
+
+If you're just looking for inspiration on how to do the important bits this client demonstrates, here's where to look:
+
+- All session handling is done in the [app/services/session.js](app/services/session.js) file.
+  - The application route ([app/routes/application.js](app/routes/application.js)) is the root route and always the first route called in an Ember app.
+    - We use this opportunity to have Auth0's SPA SDK check if the user has already authenticated. This automatically happens when we create the `Auth0Client` instance in our Session service's [getSession](app/services/session.js) method.
+  - We have a method for getting some basic information about the authenticated user, [getUser](app/services/session.js).
+  - We have a sign out method, [releaseSession](app/services/session.js).
+- We have an Ember Data model representing all the user objects returned by the Management API at [app/models/user.js](app/services/session.js)
+- We use an Ember component for managing the calls to our custom backend and rendering the users at [app/components/pages/accounts-list/component.js](app/components/pages/accounts-list/component.js)
+
 ## Auth0 Documentation
 
 - Documentation for Auth0's APIs can be found [here](https://auth0.com/docs/api/info).
