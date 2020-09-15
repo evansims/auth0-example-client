@@ -82,7 +82,7 @@ If you're just looking for inspiration on how to do the important bits this clie
     - We use this opportunity to have Auth0's SPA SDK check if the user has already authenticated. This automatically happens when we create the `Auth0Client` instance in our Session service's [getSession](app/services/session.js) method.
   - We have a method for getting some basic information about the authenticated user, [getUser](app/services/session.js).
   - We have a sign out method, [releaseSession](app/services/session.js).
-- We have an Ember Data model representing all the user objects returned by the Management API at [app/models/user.js](app/services/session.js)
+- We have an Ember Data model representing all the user objects returned by the Management API at [app/models/user.js](app/models/user.js)
 - We use an Ember component for managing the calls to our custom backend and rendering the users at [app/components/pages/accounts-list/component.js](app/components/pages/accounts-list/component.js)
 
 ## Auth0 Documentation
