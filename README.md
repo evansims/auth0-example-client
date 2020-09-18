@@ -23,6 +23,10 @@ Next, clone this repository to your local machine:
 git clone https://github.com/evansims/auth0-example-client.git
 ```
 
+## Quick Start Video Guide
+
+[![Watch the quick start video](https://i.imgur.com/2fHwKOr.png)](https://youtu.be/8PdWuMEZVgw)
+
 ### Configure Auth0 application
 
 1. [Sign up for an Auth0 account](https://manage.auth0.com/dashboard), if you don't already have one, and sign in.
