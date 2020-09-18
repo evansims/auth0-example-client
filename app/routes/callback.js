@@ -40,16 +40,22 @@ export default Route.extend(ResetScroll, {
         })
         .then(state => {
           // Store whether we are authenticated or not.
-          set(this, 'session.authenticated', state);
+          if (!state) {
+            set(this, 'session.authenticated', false);
+            set(this, 'session.token', null);
+            this.replaceWith('index');
+            return;
+          }
 
-          // Get our API token for communicating with the API directly
-          return auth0.getTokenSilently();
+          get(this, 'session')
+            .getToken()
+            .then(token => {
+              set(this, 'session.authenticated', true);
+              this.replaceWith('index');
+              return;
+            });
         })
-        .then(token => {
-          // Store the API token for use later
-          set(this, 'token', token);
-        })
-        .finally(() => {
+        .catch(() => {
           // Return the user to the index page.
           this.replaceWith('index');
         });

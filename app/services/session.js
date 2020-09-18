@@ -28,22 +28,15 @@ export default Service.extend({
           return auth0.isAuthenticated();
         })
         .then(state => {
-          // Store the authentication state for use in the app
-          set(this, 'authenticated', state);
-
           if (!state) {
+            set(this, 'authenticated', false);
             return resolve();
           }
 
-          // Get our API token for communicating with the API directly
-          return get(this, 'auth0').getTokenSilently();
-        })
-        .then(token => {
-          // Store the API token for use later
-          set(this, 'token', token);
-
-          // Complete the getSession promise
-          return resolve();
+          this.getToken().then(() => {
+            set(this, 'authenticated', true);
+            return resolve();
+          });
         })
         .catch(() => {
           // Abort the getSession promise
@@ -52,6 +45,26 @@ export default Service.extend({
     });
   },
 
+  // Get an authenticated JWT for communicating with the APIs
+  getToken: function() {
+    return new RSVP.Promise((resolve, reject) => {
+      get(this, 'auth0')
+        .getTokenSilently()
+        .then(token => {
+          // Set token for use throughout in the app
+          set(this, 'token', token);
+
+          // Resolve the promise
+          return resolve(token);
+        })
+        .catch(() => {
+          // Abort the getToken promise
+          return reject();
+        });
+    });
+  },
+
+  // Get some basic user data from the authenticated session
   getUser: function() {
     return new RSVP.Promise((resolve, reject) => {
       if (!get(this, 'authenticated')) {
@@ -69,7 +82,11 @@ export default Service.extend({
     });
   },
 
+  // Sign out of the authenticated session
   releaseSession: function() {
+    set(this, 'authenticated', false);
+    set(this, 'token', null);
+
     // Sign out of Auth0 session.
     get(this, 'auth0').logout({
       returnTo: window.location.origin,
