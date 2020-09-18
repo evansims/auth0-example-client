@@ -19,8 +19,3 @@ volumes:
   yarn_cache:
   auth0-example-client-app-sync:
     external: true
-
-networks:
-  default:
-    name: auth0-example-network
-    driver: bridge
